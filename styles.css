@@ -1,0 +1,62 @@
+:root {
+    --first-color: hsla(197, 71%, 73%, 1);
+    --first-color-alt: hsla(197, 71%, 68%, 1);
+    --text-color: rgb(255, 255, 255);
+    --body-color: rgb(213, 238, 248);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background-color: var(--body-color);
+}
+
+.buttonLoader {
+    border: none;
+    outline: none;
+    position: relative;
+    padding: 1.25rem 2.5rem;
+    background-color: var(--first-color);
+    color: var(--text-color);
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    border-radius: .5rem;
+    box-shadow: 0 18px 40px rgba(113, 214, 242, 0.524);
+    overflow: hidden;
+    cursor: wait;
+}
+
+.buttonLoader::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    background: repeating-linear-gradient(60deg,
+            transparent,
+            transparent 0.75rem,
+            var(--first-color-alt) 0.75rem,
+            var(--first-color-alt) 1.5rem);
+    animation: load 1s infinite linear;
+}
+
+.buttonText {
+    position: relative;
+}
+
+@keyframes load {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-1.75rem);
+    }
+}
